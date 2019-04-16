@@ -25,11 +25,11 @@ namespace DemoConsumerDesktopApp
 
         // TODO: Initialize the five constants below that are required 
         //       for the EventProcessorHost constructor
-        const string eventHubPath = "";
-        const string consumerGroupName = "";
-        const string eventHubConnectionString = "";
-        const string storageConnectionString = "";
-        const string leaseContainerName = "";
+        const string eventHubPath = "raspberrypiazureiothub";
+        const string consumerGroupName = "$Default";
+        const string eventHubConnectionString = "Endpoint=sb://iothub-ns-raspberryp-1511117-b047ee0577.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=1bfHi31Y0DGwmBdxpaYYrrCOJSBqVp/QsUMk6OTDOC0=;EntityPath=raspberrypiazureiothub";
+        const string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=vteneraspberrypistorage;AccountKey=14Z64Gkce9Emfh2srIbDmhOdCoZv0yGRhJdjO4zHzrn9mw7onmJH0yAgqup71BJLzDqy24cNDYBHAOZhVL8i1w==;EndpointSuffix=core.windows.net";
+        const string leaseContainerName = "processcheckpoint";
         private EventProcessorHost _EventProcessorHost;
 
 
