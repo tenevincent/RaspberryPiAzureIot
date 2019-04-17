@@ -4,16 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoConsumerDesktopApp"
-        mc:Ignorable="d"
+        mc:Ignorable="d"        
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="50"  />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        
-        <telerik:RadCartesianChart Grid.Row="1" />
+
+
+        <telerik:RadCartesianChart Grid.Row="1" >
+            <telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:DateTimeContinuousAxis x:Name="dateTimeContinuousAxis" LabelFitMode="MultiLine" LabelFormat="MMM yyyy"/>
+            </telerik:RadCartesianChart.HorizontalAxis>
+
+            <telerik:RadCartesianChart.VerticalAxis>
+                <telerik:LinearAxis LineStroke="Red" Margin="10" Title="Temperature in °c" HorizontalLocation="Left" ElementBrush="Red" />
+            </telerik:RadCartesianChart.VerticalAxis>
+
+
+            <telerik:RadCartesianChart.Behaviors>
+                <telerik:ChartPanAndZoomBehavior ZoomMode="Both">
+                </telerik:ChartPanAndZoomBehavior>
+
+                <telerik:ChartPanAndZoomBehavior MouseWheelMode="Zoom" />
+                <telerik:ChartTrackBallBehavior />
+            </telerik:RadCartesianChart.Behaviors>
+            
+            <!--Grid-->
+            <telerik:RadCartesianChart.Grid>
+                <telerik:CartesianChartGrid MajorLinesVisibility="XY" StripLinesVisibility="XY" IsTabStop="False">
+                    <telerik:CartesianChartGrid.YStripeBrushes>
+                        <SolidColorBrush Color="#FFD7D7D7" Opacity="0.3" />
+                        <SolidColorBrush Color="Transparent" />
+                    </telerik:CartesianChartGrid.YStripeBrushes>
+                    <telerik:CartesianChartGrid.XStripeBrushes>
+                        <SolidColorBrush Color="#FFD7D7D7" Opacity="0.3" />
+                        <SolidColorBrush Color="Transparent" />
+                    </telerik:CartesianChartGrid.XStripeBrushes>
+                </telerik:CartesianChartGrid>
+            </telerik:RadCartesianChart.Grid>
+
+            
+            <telerik:RadCartesianChart.Series>
+                <telerik:LineSeries Stroke="Red" 
+                    ItemsSource="{Binding SensorDaten.SensorData}"  
+                               CategoryBinding="datetime" ValueBinding="temperature"    StrokeThickness="2">
+
+                    <!--<telerik:LineSeries.VerticalAxis>
+                        <telerik:LinearAxis LineStroke="Red" Margin="10" Title="Temperature in °c" HorizontalLocation="Left" ElementBrush="Red" />
+                    </telerik:LineSeries.VerticalAxis>-->
+                    
+                    <!--Marker-->
+                    <telerik:LineSeries.PointTemplate>
+                        <DataTemplate>
+                            <Ellipse Fill="#EB7A2A" Height="7" Width="7" />
+                        </DataTemplate>
+                    </telerik:LineSeries.PointTemplate>
+                </telerik:LineSeries>
+
+
+                <telerik:LineSeries Stroke="Blue"
+                                    ItemsSource="{Binding SensorDaten.SensorData}"  
+                                     CategoryBinding="datetime" ValueBinding="humidity" 
+                                    StrokeThickness="2">
+                    <!--Marker-->
+                    <telerik:LineSeries.PointTemplate>
+                        <DataTemplate>
+                            <Ellipse Fill="#00FF00" Height="7" Width="7" />
+                        </DataTemplate>
+                    </telerik:LineSeries.PointTemplate>
+                    <!--Vertical Axis-->
+                    <telerik:LineSeries.VerticalAxis>
+                        <telerik:LinearAxis LineStroke="Blue" Title="Humidity in %" Margin="10" HorizontalLocation="Left" ElementBrush="Blue" />
+                    </telerik:LineSeries.VerticalAxis>
+                </telerik:LineSeries>
+
+
+                <telerik:LineSeries Stroke="Black"
+                                    ItemsSource="{Binding SensorDaten.SensorData}"  
+                                     CategoryBinding="datetime" ValueBinding="pressure" 
+                                    StrokeThickness="2">
+                    <!--Marker-->
+                    <telerik:LineSeries.PointTemplate>
+                        <DataTemplate>
+                            <Ellipse Fill="#0000FF" Height="7" Width="7" />
+                        </DataTemplate>
+                    </telerik:LineSeries.PointTemplate>
+                    <!--Vertical Axis-->
+                    <telerik:LineSeries.VerticalAxis>
+                        <telerik:LinearAxis Title="Pressure in mBar" HorizontalLocation="Right" ElementBrush="Black" LineStroke="Black" />
+                    </telerik:LineSeries.VerticalAxis>
+                </telerik:LineSeries>
+                
+                
+
+            </telerik:RadCartesianChart.Series>
+            
+            
+
+        </telerik:RadCartesianChart>
 
 
     </Grid>

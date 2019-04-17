@@ -8,13 +8,14 @@ namespace DemoConsumerDesktopApp.Models
 {
    public class BarometerSensor
     {
-      public  DateTime DateTime { get; set; }
+        public string deviceId { get; set; }
+      public  DateTime datetime { get; set; }
 
-        public float Temperature { get; set; }
+        public float temperature { get; set; }
 
-        public float Humidity { get; set; }
+        public float humidity { get; set; }
 
-        public float Pressure { get; set; }
+        public float pressure { get; set; }
 
 
     }
