@@ -16,6 +16,9 @@ namespace DemoConsumerDesktopApp.ViewModels
         //       for the EventProcessorHost constructor
         const string eventHubPath = "raspberrypiazureiothub";
         const string consumerGroupName = "$Default";
+
+        // HostName=RaspberryPiAzureIotHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=1bfHi31Y0DGwmBdxpaYYrrCOJSBqVp/QsUMk6OTDOC0=
+        // Endpoint=sb://iothub-ns-raspberryp-1511117-b047ee0577.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=1bfHi31Y0DGwmBdxpaYYrrCOJSBqVp/QsUMk6OTDOC0=;EntityPath=raspberrypiazureiothub
         const string eventHubConnectionString = "Endpoint=sb://iothub-ns-raspberryp-1511117-b047ee0577.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=1bfHi31Y0DGwmBdxpaYYrrCOJSBqVp/QsUMk6OTDOC0=;EntityPath=raspberrypiazureiothub";
         const string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=vteneraspberrypistorage;AccountKey=14Z64Gkce9Emfh2srIbDmhOdCoZv0yGRhJdjO4zHzrn9mw7onmJH0yAgqup71BJLzDqy24cNDYBHAOZhVL8i1w==;EndpointSuffix=core.windows.net";
         const string leaseContainerName = "processcheckpoint";
